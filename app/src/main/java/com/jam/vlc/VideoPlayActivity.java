@@ -30,6 +30,9 @@ public class VideoPlayActivity extends Activity implements View.OnClickListener 
     private void initView() {
         mVideoView = (ViewVideoPlay) findViewById(R.id.videoView);
         findViewById(R.id.goNext).setOnClickListener(this);
+        findViewById(R.id.video1).setOnClickListener(this);
+        findViewById(R.id.video2).setOnClickListener(this);
+        findViewById(R.id.video3).setOnClickListener(this);
         // 获得屏幕宽度
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
@@ -46,6 +49,15 @@ public class VideoPlayActivity extends Activity implements View.OnClickListener 
             case R.id.goNext:
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.video1:
+                mVideoView.playByPath("http://video.zhihuishu.com/testzhs/createcourse/COURSE/201512/a484caed0c72425d8535089f7566b030_500.mp4");
+                break;
+            case R.id.video2:
+                mVideoView.playByPath("http://video.zhihuishu.com/zhs_yufa_150820/createcourse/COURSE/201611/c241aa0e25f44cf08c2e5ed96a53b598_500.mp4");
+                break;
+            case R.id.video3:
+                mVideoView.playByPath("http://video.zhihuishu.com/testzhs/createcourse/COURSE/201603/ba028bc5a184465390ca57a58e62260a.mp4");
                 break;
         }
     }
