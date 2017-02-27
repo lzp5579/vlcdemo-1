@@ -6,11 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
-
-import com.jam.vlc.media.ViewVideoPlay;
 
 
 /**
@@ -39,7 +35,7 @@ public class VideoPlayActivity extends Activity implements View.OnClickListener 
         wm.getDefaultDisplay().getMetrics(dm);
         int sHeight = dm.heightPixels;// 屏幕高度
 
-        mVideoView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, sHeight / 3));
+//        mVideoView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, sHeight / 3));
         mVideoView.playByPath("http://video.zhihuishu.com/testzhs/createcourse/COURSE/201512/a484caed0c72425d8535089f7566b030_500.mp4");
     }
 
@@ -76,7 +72,7 @@ public class VideoPlayActivity extends Activity implements View.OnClickListener 
 
     @Override
     protected void onStop() {
-        mVideoView.stop();
+//        mVideoView.stop();
         super.onStop();
     }
 

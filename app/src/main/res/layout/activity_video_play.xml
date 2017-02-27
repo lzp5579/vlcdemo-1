@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
 
 
-    <com.jam.vlc.media.ViewVideoPlay
+    <com.jam.vlc.ViewVideoPlay
         android:id="@+id/videoView"
-        android:layout_width="1dp"
-        android:layout_height="1dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/goNext"
