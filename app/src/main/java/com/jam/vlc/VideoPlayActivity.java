@@ -98,7 +98,7 @@ public class VideoPlayActivity extends Activity implements View.OnClickListener 
 
                 break;
             case R.id.video1:
-                mVideoView.playByPath("http://wghlive.zhihuishu.com/livepkgr/rb_104105_1_500/index.m3u8?srchost=live.zhihuishu.com");
+                mVideoView.playByPath("rtmp://live.zhihuishu.com/livepkgr/rb_000000_1_500");
                 break;
             case R.id.video2:
                 mVideoView.playByPath("http://video.zhihuishu.com/zhs_yufa_150820/createcourse/COURSE/201611/c241aa0e25f44cf08c2e5ed96a53b598_500.mp4");

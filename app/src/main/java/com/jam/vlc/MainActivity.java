@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
@@ -12,6 +14,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.goPlay).setOnClickListener(this);
+        int num = 10;
+        if (num > 0) {
+            ShortcutBadger.applyCount(this, num); //for 1.1.4+
+        } else {
+            ShortcutBadger.removeCount(this); //for 1.1.4+
+        }
     }
 
     @Override

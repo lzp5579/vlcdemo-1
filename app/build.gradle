@@ -20,8 +20,29 @@ android {
     sourceSets.main {
         jniLibs.srcDirs = ['libs']
     }
-}
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains("lint")//如果instant run不生效，把clean这行干掉
+                ||task.name.equals("clean")//项目中有用到aidl则不可以舍弃这个任务
+                ||task.name.contains("Aidl")//用不到测试的时候就可以先关闭
+                ||task.name.contains("mockableAndroidJar")
+                ||task.name.contains("UnitTest")
+                ||task.name.contains("AndroidTest")//用不到NDK和JNI的也关闭掉
+                || task.name.contains("Ndk")
+                || task.name.contains("Jni")
+        ) {
+            task.enabled = false
+        }
+    }
 
+
+}
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+
+    }
+}
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -32,6 +53,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile "me.leolin:ShortcutBadger:1.1.4@aar"
 
 //    testCompile 'junit:junit:4.12'
 
